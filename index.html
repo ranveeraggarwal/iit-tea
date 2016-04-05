@@ -26,7 +26,7 @@
         }
 
         .stations circle {
-            fill: brown;
+            fill: blue;
             stroke: black;
             stroke-width: 1.5px;
         }
@@ -40,8 +40,8 @@
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script>
-
-        var hour = -1;
+        var now = new Date();
+        var hour = now.getHours() - 1;
 
         // Create the Google Map…
         var map = new google.maps.Map(d3.select("#map").node(), {
@@ -64,7 +64,7 @@
 
                 // Add the container when the overlay is added to the map.
                 overlay.onAdd = function () {
-                    var layer = d3.select(this.getPanes().overlayLayer).append("div")
+                    var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
                             .attr("class", "stations");
 
                     // Draw each marker as a separate SVG element.
@@ -85,14 +85,15 @@
                         // Add a circle.
                         marker.append("circle")
                                 .attr("r", function(d){
-                                    return d.value[3][hour]*4.5;
+                                    return d.value[3][hour]*6;
                                 })
                                 .attr("cx", padding)
-                                .attr("cy", padding);
+                                .attr("cy", padding)
+                                .on("click",toggleExpand);
 
                         // Add a label.
                         marker.append("text")
-                                .attr("x", padding + 7)
+                                .attr("x", padding + 10)
                                 .attr("y", padding)
                                 .attr("dy", ".31em")
                                 .text(function (d) {
@@ -108,12 +109,16 @@
                                     .style("top", (d.y - padding) + "px");
                         }
 
+                        function toggleExpand() {
+                            console.log("Swag");
+                        }
+
                     };
                 };
 
                 overlay.onRemove = function() {};
 
-                // Bind our overlay to the map…
+                // Bind our overlay to the map
                 overlay.setMap(map);
             });
         }
