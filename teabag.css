@@ -2,7 +2,7 @@
 
 html, body, #map {
     font-family: 'Raleway', sans-serif;
-    height: 90%;
+    height: 85%;
     margin: 0;
 }
 
@@ -33,11 +33,6 @@ html, body, #map {
     text-align: left;
     padding-left: 10%;
     font-weight: 900;
-}
-
-.timeControls {
-    padding: 10px;
-    text-align: center;
 }
 
 .timeHour {
@@ -115,4 +110,36 @@ html, body, #map {
 
 .icon-food:before {
     content: "\e900";
+}
+
+.wrapper {
+    border : 2px solid #000;
+    overflow:hidden;
+}
+
+.wrapper div {
+    min-height: 200px;
+    padding: 10px;
+}
+.timeControls {
+    float:left;
+    margin-right:20px;
+    width: 30%;
+    padding: 50px 10px;
+}
+.information {
+    background-color: white;
+    overflow:hidden;
+    min-height:170px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeControls {
+        float: none;
+        margin-right:0;
+        width:auto;
+        border:0;
+        border-bottom:2px solid #000;
+    }
 }
