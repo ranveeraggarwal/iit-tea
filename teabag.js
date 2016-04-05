@@ -49,7 +49,7 @@ function assign_dots() {
                     })
                     .attr("cx", padding)
                     .attr("cy", padding)
-                    .on("click", toggleExpand());
+                    .on("click", toggleExpand);
 
                 // Add a label.
                 marker.append("text")
@@ -69,9 +69,10 @@ function assign_dots() {
                         .style("top", (d.y - padding) + "px");
                 }
 
-                function toggleExpand() {
-                    //$('#myModal').modal('toggle');
-                    console.log("swag");
+                function toggleExpand(d) {
+                    $('#myModal').modal('toggle');
+                    console.log(d.value[2]);
+                    console.log("Reaches here");
                 }
 
             };
@@ -83,7 +84,7 @@ function assign_dots() {
         overlay.setMap(map);
     });
 }
-window.onload = assign_dots();
+window.onload = assign_dots_initially();
 
 function progress_time() {
 
