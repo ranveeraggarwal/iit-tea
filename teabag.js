@@ -14,15 +14,51 @@ var hour = now.getHours();
 
 // Create the Google Map…
 var map = new google.maps.Map(d3.select("#map").node(), {
-    zoom: 16,
+    zoom: 18,
     center: new google.maps.LatLng(19.134249, 72.913608),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: [{
-        stylers: [{
-            saturation: -60
-        }]
-    }]
+    styles: [
+        {
+            stylers: [{
+                saturation: -60
+            }]
+        },
+        {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ]
 });
+
+// Try W3C Geolocation (Preferred)
+if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+        initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        map.setCenter(initialLocation);
+    }, function() {
+        handleNoGeolocation(browserSupportFlag);
+    });
+}
+// Browser doesn't support Geolocation
+else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+}
+
+function handleNoGeolocation(errorFlag) {
+    if (errorFlag == true) {
+        alert("Geolocation service failed.");
+        initialLocation = newyork;
+    } else {
+        alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+        initialLocation = siberia;
+    }
+    map.setCenter(initialLocation);
+}
 
 function assign_dots() {
     $("#hour").text(hour);
@@ -44,7 +80,7 @@ function assign_dots() {
             // We could use a single SVG, but what size would it have?
             overlay.draw = function () {
                 var projection = this.getProjection(),
-                    padding = 10;
+                    padding = 30;
 
                 layer.selectAll("svg").remove();
 
@@ -58,7 +94,7 @@ function assign_dots() {
                 // Add a circle.
                 marker.append("circle")
                     .attr("r", function(d){
-                        return d.value[3][hour]*6;
+                        return d.value[3][hour]*10;
                     })
                     .attr("cx", padding)
                     .attr("cy", padding)
@@ -66,7 +102,7 @@ function assign_dots() {
 
                 // Add a label.
                 marker.append("text")
-                    .attr("x", padding + 10)
+                    .attr("x", padding + 15)
                     .attr("y", padding)
                     .attr("dy", ".31em")
                     .text(function (d) {

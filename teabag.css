@@ -17,16 +17,16 @@ html, body, #map {
 }
 
 .stations svg {
-    width: 60px;
-    height: 20px;
+    width: 80px;
+    height: 80px;
     padding-right: 100px;
-    font: 10px sans-serif;
+    font-size: 12px;
 }
 
 .stations circle {
     fill: blue;
     stroke: black;
-    stroke-width: 1.5px;
+    stroke-width: 2px;
 }
 
 .heading {
