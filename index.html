@@ -21,13 +21,33 @@
     </div>
 </div>
     <div id="map"></div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Title</h4>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cool, thanks!</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <hr>
                 <div class="row">
                     <div class="col-md-2 col-md-offset-3 col-xs-12 col-xs-offset-0" style="padding-bottom: 10px;">
-                        <center><button class="btn btn-success" onclick="progress_time()">Progress Time</button></center>
+                        <center>
+                            <button class="btn btn-danger" onclick="regress_time()">Regress Time</button>
+                        </center>
                     </div>
                     <div class="col-md-2 text-center col-xs-12 col-xs-offset-0" style="padding-bottom: 10px;">
                         <center>
@@ -38,7 +58,7 @@
                     </div>
                     <div class="col-md-2 col-xs-12 col-xs-offset-0">
                         <center>
-                            <button class="btn btn-danger" onclick="regress_time()">Regress Time</button>
+                            <button class="btn btn-success" onclick="progress_time()">Progress Time</button>
                         </center>
                     </div>
                 </div>

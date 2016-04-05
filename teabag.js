@@ -8,7 +8,7 @@ var hour = now.getHours();
 // Create the Google Map…
 var map = new google.maps.Map(d3.select("#map").node(), {
     zoom: 16,
-    center: new google.maps.LatLng(19.131522, 72.9156897),
+    center: new google.maps.LatLng(19.134249, 72.913608),
     mapTypeId: google.maps.MapTypeId.TERRAIN
 });
 
@@ -49,7 +49,7 @@ function assign_dots() {
                     })
                     .attr("cx", padding)
                     .attr("cy", padding)
-                    .on("click",toggleExpand);
+                    .on("click", toggleExpand());
 
                 // Add a label.
                 marker.append("text")
@@ -70,7 +70,8 @@ function assign_dots() {
                 }
 
                 function toggleExpand() {
-                    console.log("Swag");
+                    //$('#myModal').modal('toggle');
+                    console.log("swag");
                 }
 
             };
