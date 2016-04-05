@@ -4,75 +4,28 @@
         IIT Tea
     </title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/main.css" rel="stylesheet">
-
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <link href="./teabag.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-           <h1><center>IIT Tea</center></h1>
-            <hr>
-        </div>
-    </div>
-</div>
+    <h1 class="heading">
+        <span class="icon-food"></span> IIT Tea
+    </h1>
+
     <div id="map"></div>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Title</h4>
-            </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cool, thanks!</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <hr>
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-3 col-xs-12 col-xs-offset-0" style="padding-bottom: 10px;">
-                        <center>
-                            <button class="btn btn-danger" onclick="regress_time()">Regress Time</button>
-                        </center>
-                    </div>
-                    <div class="col-md-2 text-center col-xs-12 col-xs-offset-0" style="padding-bottom: 10px;">
-                        <center>
-                            <div class="form-control">
-                                Time: <span id='hour'></span>:00 HH
-                            </div>
-                        </center>
-                    </div>
-                    <div class="col-md-2 col-xs-12 col-xs-offset-0">
-                        <center>
-                            <button class="btn btn-success" onclick="progress_time()">Progress Time</button>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="timeControls">
+        <center>
+            <button onclick="regress_time()" class="teaButton">- decrease</button>
+            <span class="timeHour">&nbsp; Time: <span id='hour'></span>:00 HH &nbsp;</span>
+            <button onclick="progress_time()" class="teaButton">+ increase</button>
+        </center>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="./teabag.js"></script>
 
 </body>
