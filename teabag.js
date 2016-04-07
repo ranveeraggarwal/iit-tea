@@ -2,7 +2,7 @@
  * Created by ranveer on 05/04/16.
  */
 
-pricing_levels = ["Cheap", "Moderate", "Expensive"];
+pricing_levels = ["Inexpensive", "Moderate", "Expensive"];
 
 var now = new Date();
 var hour = now.getHours();
@@ -151,7 +151,7 @@ function assign_dots() {
                     $("#information-para").text(d.value[4]);
                     $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
                     $("#information-pricing").html('<strong>Pricing: </strong>' + pricing_levels[d.value[6]-1] + ' ' +
-                        '<svg height="40" width="40"><circle cx="18" cy="18" r="12" stroke="black" stroke-width="2" fill="rgba(0,0,0,' + (0.1 + (d.value[6]-1)*0.45).toString() + ')" /></svg>');
+                        '<svg height="40" width="40"><circle cx="18" cy="19" r="12" stroke="black" stroke-width="2" fill="rgba(0,0,0,' + (0.1 + (d.value[6]-1)*0.45).toString() + ')" /></svg>');
                     if (d.value[7][0]) {
                         $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim">')
                     }
