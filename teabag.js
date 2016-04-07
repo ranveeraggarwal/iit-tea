@@ -2,13 +2,6 @@
  * Created by ranveer on 05/04/16.
  */
 
-var lipsum = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\
-industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and\
-scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into\
-electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release\
-of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like\
-Aldus PageMaker including versions of Lorem Ipsum."
-
 var now = new Date();
 var hour = now.getHours();
 
@@ -103,10 +96,13 @@ function assign_dots() {
                 // Add a circle.
                 marker.append("circle")
                     .attr("r", function(d){
-                        return d.value[3][hour]*d.value[6]*5;
+                        return d.value[3][hour]*12;
                     })
                     .attr("cx", padding)
                     .attr("cy", padding)
+                    .style("fill", function(d) {
+                        return "rgba(0, 0, 0, " + (0.1 + (d.value[6]-1)*0.45).toString() + ")"
+                    })
                     .on("click",toggleExpand);
 
                 // Add a label.
@@ -133,11 +129,12 @@ function assign_dots() {
                     $("#information-para").text(d.value[4]);
                     $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
                     if (d.value[7][0]) {
-                        $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim"><br><center><a href="#" onclick="expand()">Click to expand</a></center>')
+                        $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim">')
                     }
                     if (d.value[8][0]) {
                         $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website for Menu</a>')
                     }
+                    $("#information").toggle();
                 }
 
             };
