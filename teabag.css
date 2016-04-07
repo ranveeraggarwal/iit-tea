@@ -112,7 +112,8 @@ html, body, #map {
 }
 
 .wrapper {
-    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .element-information {
@@ -157,4 +158,42 @@ html, body, #map {
 
 .respim {
     width: 100%;
+}
+
+.spacer {
+    display: block;
+}
+
+#progress-bar {
+    width: 100%;
+    background: #cccccc;
+    position: relative;
+}
+
+#no-mobile {
+    padding:10px;
+}
+
+#progress-bar-percentage {
+    background: #000000;
+    padding: 5px 0px;
+    color: #FFF;
+    text-align: center;
+    height: 20px;
+}
+
+#progress-bar-percentage span {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.asvg {
+    display: inline-block;
+    margin-top: -10px;
+}
+.asvg svg {
+    display: inline-block;
+    vertical-align: middle;
 }

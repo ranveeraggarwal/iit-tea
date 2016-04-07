@@ -2,6 +2,8 @@
  * Created by ranveer on 05/04/16.
  */
 
+pricing_levels = ["Cheap", "Moderate", "Expensive"];
+
 var now = new Date();
 var hour = now.getHours();
 
@@ -64,6 +66,26 @@ function handleNoGeolocation(errorFlag) {
 
 function assign_dots() {
     $("#hour").text(hour);
+    if (hour > 12) {
+        $("#hours").text(hour-12 + ":00 PM");
+    } else if (hour == 12) {
+        $("#hours").text(hour + ":00 PM");
+    } else {
+        $("#hours").text(hour + ":00 AM");
+    }
+
+    $("#progress-bar-percentage").css("width", ((hour/24)*100).toString()+"%");
+
+    if (hour < 5 || hour > 20) {
+        $("#progress-bar-percentage").css("background", "#000000");
+    } else if (hour < 11) {
+        $("#progress-bar-percentage").css("background", "#87CEEB");
+    } else if (hour < 16) {
+        $("#progress-bar-percentage").css("background", "#ffd700");
+    } else {
+        $("#progress-bar-percentage").css("background", "#ff8c00");
+    }
+
     console.log(hour);
     // Load the station data. When the data comes back, create an overlay.
     d3.json("stations.json", function (error, data) {
@@ -128,6 +150,8 @@ function assign_dots() {
                     $("#information-title").text(d.value[2]);
                     $("#information-para").text(d.value[4]);
                     $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
+                    $("#information-pricing").html('<strong>Pricing: </strong>' + pricing_levels[d.value[6]-1] + ' ' +
+                        '<svg height="40" width="40"><circle cx="18" cy="18" r="12" stroke="black" stroke-width="2" fill="rgba(0,0,0,' + (0.1 + (d.value[6]-1)*0.45).toString() + ')" /></svg>');
                     if (d.value[7][0]) {
                         $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim">')
                     }
