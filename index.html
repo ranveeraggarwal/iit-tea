@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>
-        IIT Tea
+        IITea
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
@@ -10,24 +10,39 @@
 
 <body>
     <h1 class="heading">
-        <span class="icon-food"></span> IIT Tea
+        <span class="icon-food"></span> IITea
     </h1>
 
     <div id="map"></div>
     <div class="wrapper">
         <center>
-            <button onclick="regress_time()" class="teaButton">- decrease</button>
-            <span class="timeHour">&nbsp; Time: <span id='hour'></span>:00 HH &nbsp;</span>
-            <button onclick="progress_time()" class="teaButton">+ increase</button>
+            <table width="80%">
+                <tr>
+                    <td width="10%" align="right">
+                        <button onclick="regress_time()" class="teaButton">&larr;&nbsp;earlier</button>
+                    </td>
+                    <td width="80%">
+                        <div id="mobile" style="display: none"><span class="timeHour">&nbsp; Time: <span id='hour'></span>:00 HH &nbsp;</span></div>
+                        <div id="no-mobile">
+                            <div id="progress-bar">
+                                <div id="progress-bar-percentage" class="all-rounded" style="width: 68%"><span id="hours"></span></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="10%" align="left">
+                        <button onclick="progress_time()" class="teaButton">later&nbsp;&rarr;</button>
+                    </td>
+                </tr>
+            </table>
         </center>
     </div>
 
     <div class="element-information">
         <div class="information" id="information" style="display: none">
             <h2 id="information-title"></h2>
-            <p id="information-para">
-            </p>
-            <p><span id="information-must-try"></span></p>
+            <p id="information-para"></p>
+            <p id="information-must-try"></p>
+            <p id="information-pricing" class="asvg"></p>
             <span id="information-website"></span>
             <div id="information-image"></div>
         </div>
