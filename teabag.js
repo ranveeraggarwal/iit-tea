@@ -33,12 +33,21 @@ var map = new google.maps.Map(d3.select("#map").node(), {
     ]
 });
 
+initialLocation = "mumbai";
+
 // Try W3C Geolocation (Preferred)
 if(navigator.geolocation) {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
         map.setCenter(initialLocation);
+        var marker = new google.maps.Marker({
+            // The below line is equivalent to writing:
+            // position: new google.maps.LatLng(-34.397, 150.644)
+            position: initialLocation,
+            map: map
+        });
+        //console.log();
     }, function() {
         handleNoGeolocation(browserSupportFlag);
     });
