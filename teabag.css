@@ -24,7 +24,6 @@ html, body, #map {
 }
 
 .stations circle {
-    fill: blue;
     stroke: black;
     stroke-width: 2px;
 }
@@ -117,14 +116,18 @@ html, body, #map {
 }
 
 .element-information {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 20px;
 }
 
-.wrapper2 div {
-    padding-left: 10px;
-    padding-right: 10px;
+.information {
+    border: 3px dashed;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
+
 .leftSide {
     float:left;
     margin-right:20px;
