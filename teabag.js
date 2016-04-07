@@ -133,10 +133,10 @@ function assign_dots() {
                     $("#information-para").text(d.value[4]);
                     $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
                     if (d.value[7][0]) {
-                        $("#information-image").html('<a href="' + d.value[7][1] + '"><img src="' + d.value[7][1] + '" class="respim"></a>')
+                        $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim"><br><center><a href="#" onclick="expand()">Click to expand</a></center>')
                     }
                     if (d.value[8][0]) {
-                        $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website</a>')
+                        $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website for Menu</a>')
                     }
                 }
 
