@@ -143,3 +143,38 @@ html, body, #map {
         border-bottom:2px solid #000;
     }
 }
+
+.wrapper2 div {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.leftSide {
+    float:left;
+    margin-right:20px;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.rightSide {
+    background-color: white;
+    overflow:hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .leftSide {
+        float: none;
+        margin-right:0;
+        width:auto;
+        border:0;
+        border-bottom:2px solid #000;
+    }
+    .rightSide {
+        padding-top: 10px;
+    }
+}
+
+.respim {
+    width: 100%;
+}

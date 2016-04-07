@@ -103,7 +103,7 @@ function assign_dots() {
                 // Add a circle.
                 marker.append("circle")
                     .attr("r", function(d){
-                        return d.value[3][hour]*10;
+                        return d.value[3][hour]*d.value[6]*5;
                     })
                     .attr("cx", padding)
                     .attr("cy", padding)
@@ -117,7 +117,8 @@ function assign_dots() {
                     .text(function (d) {
                         if (d.value[3][hour])
                             return d.key;
-                    });
+                    })
+                    .on("click",toggleExpand);
 
                 function transform(d) {
                     d = new google.maps.LatLng(d.value[1], d.value[0]);
@@ -129,7 +130,14 @@ function assign_dots() {
 
                 function toggleExpand(d) {
                     $("#information-title").text(d.value[2]);
-                    $("#information-para").text(lipsum);
+                    $("#information-para").text(d.value[4]);
+                    $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
+                    if (d.value[7][0]) {
+                        $("#information-image").html('<a href="' + d.value[7][1] + '"><img src="' + d.value[7][1] + '" class="respim"></a>')
+                    }
+                    if (d.value[8][0]) {
+                        $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website</a>')
+                    }
                 }
 
             };
