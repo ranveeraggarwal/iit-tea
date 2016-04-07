@@ -7,6 +7,8 @@ pricing_levels = ["Inexpensive", "Moderate", "Expensive"];
 var now = new Date();
 var hour = now.getHours();
 
+var begin_flag = 0;
+
 // Create the Google Map…
 var map = new google.maps.Map(d3.select("#map").node(), {
     zoom: 18,
@@ -152,13 +154,20 @@ function assign_dots() {
                     $("#information-must-try").html('<strong>Must Try: </strong>' + d.value[5]);
                     $("#information-pricing").html('<strong>Pricing: </strong>' + pricing_levels[d.value[6]-1] + ' ' +
                         '<svg height="40" width="40"><circle cx="18" cy="19" r="12" stroke="black" stroke-width="2" fill="rgba(0,0,0,' + (0.1 + (d.value[6]-1)*0.45).toString() + ')" /></svg>');
-                    if (d.value[7][0]) {
+                    if (d.value[7][0] == 1) {
                         $("#information-image").html('<img src="' + d.value[7][1] + '" class="respim">')
+                    } else {
+                        $("#information-image").html('')
                     }
-                    if (d.value[8][0]) {
+                    if (d.value[8][0] == 1) {
                         $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website for Menu</a>')
+                    } else {
+                        $("#information-website").html('')
                     }
-                    $("#information").toggle();
+                    if (!begin_flag) {
+                        $("#information").toggle();
+                        begin_flag = 1;
+                    }
                 }
 
             };
