@@ -160,7 +160,7 @@ function assign_dots() {
                         $("#information-image").html('')
                     }
                     if (d.value[8][0] == 1) {
-                        $("#information-website").html('<a href="' + d.value[8][1] + '">Visit Website for Menu</a>')
+                        $("#information-website").html('<br><a href="' + d.value[8][1] + '">Visit Website for Menu</a>')
                     } else {
                         $("#information-website").html('')
                     }
