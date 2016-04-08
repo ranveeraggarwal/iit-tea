@@ -6,6 +6,7 @@ pricing_levels = ["Inexpensive", "Moderate", "Expensive"];
 
 var now = new Date();
 var hour = now.getHours();
+var minutes = now.getMinutes();
 
 var begin_flag = 0;
 
@@ -66,14 +67,18 @@ function handleNoGeolocation(errorFlag) {
     map.setCenter(initialLocation);
 }
 
+function centre_map(){
+    map.setCenter(initialLocation);
+}
+
 function assign_dots() {
     $("#hour").text(hour);
     if (hour > 12) {
-        $("#hours").text(hour-12 + ":00 PM");
+        $("#hours").text(hour-12 + ":" + minutes + " PM");
     } else if (hour == 12) {
-        $("#hours").text(hour + ":00 PM");
+        $("#hours").text(hour + ":" + minutes + " PM");
     } else {
-        $("#hours").text(hour + ":00 AM");
+        $("#hours").text(hour + ":" + minutes + " AM");
     }
 
     $("#progress-bar-percentage").css("width", ((hour/24)*100).toString()+"%");
@@ -184,6 +189,7 @@ window.onload = assign_dots();
 function progress_time() {
     hour = hour + 1;
     if (hour == 24) hour = 0;
+    minutes = "00";
     d3.selectAll("svg").remove();
     assign_dots();
 }
@@ -191,6 +197,7 @@ function progress_time() {
 function regress_time() {
     hour = hour - 1;
     if (hour == -1) hour = 23;
+    minutes = "00";
     d3.selectAll("svg").remove();
     assign_dots();
 }
